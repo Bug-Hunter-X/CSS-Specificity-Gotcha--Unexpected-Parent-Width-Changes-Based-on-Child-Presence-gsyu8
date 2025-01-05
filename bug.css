@@ -1,0 +1,8 @@
+The following CSS rule, intending to style elements with the class "container", results in unexpected behavior when combined with another rule targeting a more specific descendant element:
+
+```css
+.container { width: 80%; }
+.container .item { width: 50%; }
+```
+
+The issue is subtle: if the `.item` element is not present, the `.container` width might take effect, and if the `.item` is present, the specificity of `.container .item` will override `.container`, affecting the parent container size unexpectedly.
